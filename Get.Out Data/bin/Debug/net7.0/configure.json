@@ -1,0 +1,38 @@
+{
+	"NLog":{
+    "internalLogLevel":"Info",
+	"autoReload":"true",
+    "internalLogFile":"c:\\temp\\internal-nlog.txt",
+    "extensions": [
+      { "assembly": "NLog.Extensions.Logging"},
+	  {"assembly":	"NLog.Telegram" }
+    ],
+    "targets":{
+		"async": true,
+        "console":{
+            "type":"Console",
+			"layout":"${longdate} level=${level} message=${message}"
+        },
+		"telegramTarget":{
+            "type":"Telegram",
+			"layout":"${longdate} level=${level} message=${message}",
+			"botToken":"5828690009:AAH9xqBA_Z0b8F95Sjsio8wC4ckZL0W3n-I",
+			"chatId":"-1001418173065"
+        }
+    },
+    "rules":[
+        {
+            "logger":"*",
+            "minLevel":"Info",
+            "writeTo":"console"
+        },
+		{	"logger":"*",
+            "minLevel":"Error",
+		"writeTo":"telegramTarget"}
+    ]
+},
+	
+  "URL": "https://stage.3dpro.info/panel/get-widget-data?widgetId=cbcf48a0-86d5-4301-a4de-5164cd25b5d6",
+  "Timeout": "10",
+  "TOKEN":"5828690009:AAH9xqBA_Z0b8F95Sjsio8wC4ckZL0W3n-I"
+}
