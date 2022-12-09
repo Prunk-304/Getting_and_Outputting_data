@@ -22,4 +22,8 @@
       <Content Include="bin\Debug\net7.0\configure.json" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="configure.json" />
+    </ItemGroup>
+
 </Project>
